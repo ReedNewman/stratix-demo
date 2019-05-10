@@ -21,7 +21,10 @@ class Home (
 
     @GetMapping
     fun getHomePage(model: Model) : String {
-        initIfNoData()
+        val dataToSave = initIfNoData()
+        if (!dataToSave.isNullOrEmpty()) {
+            saveDataToDatabase(dataToSave)
+        }
 
         model.apply {
             addAttribute("devices", devicesRepository.findAll())
@@ -30,9 +33,9 @@ class Home (
         return HOME
     }
 
-    fun initIfNoData() {
+    fun initIfNoData() : List<Device> {
         if ( devicesRepository.findAll().size != 0 ) {
-            return
+            return devicesRepository.findAll()
         }
 
         var devices = arrayListOf<Device>()
@@ -55,11 +58,10 @@ class Home (
 
             devices.add(device)
         }
-
-        saveDataToDatabase(devices)
+        return devices
     }
 
-    fun saveDataToDatabase(devices : ArrayList<Device>) {
+    fun saveDataToDatabase(devices : List<Device>) {
         for (device in devices) {
             devicesRepository.save(device)
         }
