@@ -11,7 +11,7 @@ Stratix Demo
 ./gradlew bootRon --scan
 ----
 
-.Assumptions
+====== _Assumptions_
 MongoDB is installed on the machine your running and configured with no authorizaiton required.
 
 
