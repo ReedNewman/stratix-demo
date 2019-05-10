@@ -24,8 +24,10 @@ The goal was to showcase server side Kotlin.  I used Thymeleaf and Bootstrap for
 
 
 === Improvements
-* Unit Test!!!
-* Fixup health check to access database
-* Use embedded mongodb for better unit testing
-** Remove embedded mongodb for production
+* More unit tests!  So many more...
+* Fixup health check to access database (ensure it is healthy)
+* Use embedded mongodb for better unit testing (stash data and have a better mock)
+** Remove embedded mongodb for production (no test code in prod)
 * Configure mongodb with username / password
+** I had removed authentication so it would be easier to run for Stratix folks.  This is obviously not ideal, but I didn't want to have any blockers preventing review.
+* More functionality?  I didn't really know where I was going with this.  I could do some analytics and compare my random data to find some kind of match. ¯\\_(ツ)_/¯

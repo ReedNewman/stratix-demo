@@ -41,7 +41,7 @@ class Home (
         var devices = arrayListOf<Device>()
 
         // Initial boot, let's populate our data
-        for ( i in 1..10 ) {
+        for ( i in 1..GENERATED_DEVICES ) {
             val osType = OsType.fromInt((0..2).random())
 
             val offset = Timestamp.valueOf("2018-12-31 00:00:00").getTime()
@@ -69,6 +69,7 @@ class Home (
 
     companion object {
         val HOME = "home"
+        val GENERATED_DEVICES = 10
     }
 
 }
