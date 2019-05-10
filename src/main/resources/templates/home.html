@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -32,6 +32,15 @@
         <div class="col">Last Seen</div>
         <div class="col">Needs Maintenance</div>
         <div class="col"><p class="text-right">Perform Action</p></div>
+    </div>
+    <div class="row"  th:each="device : ${devices}">
+        <div class="col"><span th:text="${device.serial}">serial</span></div>
+        <div class="col"><span th:text="${device.os}">os</span></div>
+        <div class="col"><span th:text="${device.lastSeen}">lastSeen</span></div>
+        <div class="col"><span th:text="${device.requiresMaintenence}">needsMaintence</span></div>
+        <div class="col">
+            <a th:id="btn_ + ${device.serial}" href="#" th:onclick="" class="btn btn-danger btn-sm float-right" role="button"><span class="glyphicon glyphicon-remove">Remove</span></a>\
+        </div>
     </div>
 </div>
 
