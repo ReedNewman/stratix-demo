@@ -34,3 +34,8 @@ HELP.md
 
 ### Spring Initializr ###
 stratix-demo.zip
+
+### Other Stuff ###
+build/
+node_modules/
+package-lock.json

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <appender name="Root" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <append>true</append>
+    <file>${catalina.base:-build}/logs/webapp.log</file>
+    <encoder>
+      <pattern>%d %-5level [%thread %file:%line] - %m%n</pattern>
+    </encoder>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${catalina.base:-build}/logs/webapp.log.%d{yyyy-MM-dd}</fileNamePattern>
+      <maxHistory>4</maxHistory>
+    </rollingPolicy>
+  </appender>
+  <appender name="StdOut" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d %-5level [%thread %file:%line] - %m%n</pattern>
+    </encoder>
+  </appender>
+  <logger name="com.stratix.demo" level="TRACE"/>
+  <logger name="StdOut" level="INFO"/>
+  <root level="WARN">
+    <appender-ref ref="Root"/>
+    <appender-ref ref="StdOut"/>
+  </root>
+</configuration>
