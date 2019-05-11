@@ -42,7 +42,6 @@ tasks {
     }
 
     withType<War> {
-        dependsOn(":stratix-demo-ui:buildAngular")
         from("../stratix-demo-ui/build/webapp") { include("**/*") }
         from("src/main/webapp") { include("**/*") }
     }
@@ -62,7 +61,7 @@ tasks {
     }
 
     withType<JavaExec> {
-        dependsOn(":stratix-demo-ui:buildAngular")
+        dependsOn(":stratix-demo-ui:buildAngularDev")
     }
 }
 

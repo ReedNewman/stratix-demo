@@ -6,28 +6,28 @@ Stratix Demo
 :Revision: 0.1
 
 == Run
+Instructions to run
+
+Startup Mongo in docker container (self-destructing data)
 [source,bash]
 ----
-./gradlew bootRon --scan
+docker run -d --rm --name mnsync-mongo \
+  --memory="128m" \
+  --cpus="1" \
+  -p 27017:27017 \
+  -v `pwd`/scripts/mongo:/docker-entrypoint-initdb.d/ \
+  mongo
 ----
 
-====== _Assumptions_
-MongoDB is installed on the machine your running and configured with no authorizaiton required.
+Startup Application via gradle
+[source,bash]
+----
+EXTERNAL_FILES=../stratix-demo-ui/build/webapp ./gradlew run
+----
 
 
 === Introduction
-Hi Andrew and Sejal!  It was great talking with you yesterday.  I was very excited to learn about what you are doing
-and was impressed with how you had described the workflow you use.  So excited that I built a demo application.  If there
-is anything that I can do to stand out or be more impessive for you guys, please let me know.
+Hello Reed, I must say that I am very impressed. So I decided to see if I could take it one step further and provide you with the core infrastructure concepts and see how you do (for fun of course). And I've included a mistake or two for your pleasure.
 
-The goal was to showcase server side Kotlin.  I used Thymeleaf and Bootstrap for the frontend, but ideally I would have selected Angular to match your stack.  I wanted to get this in front of you quickly, so I went with what I knew.  If you like this, or you want to see more I can certainly retrofit it with Angular.
+I've no particular goals in mind, just want to see if maybe you can do something trivially simple using the framework that relies on Kotlin idioms in a more puristic manner.
 
-
-=== Improvements
-* More unit tests!  So many more...
-* Fixup health check to access database (ensure it is healthy)
-* Use embedded mongodb for better unit testing (stash data and have a better mock)
-** Remove embedded mongodb for production (no test code in prod)
-* Configure mongodb with username / password
-** I had removed authentication so it would be easier to run for Stratix folks.  This is obviously not ideal, but I didn't want to have any blockers preventing review.
-* More functionality?  I didn't really know where I was going with this.  I could do some analytics and compare my random data to find some kind of match. ¯\\_(ツ)_/¯

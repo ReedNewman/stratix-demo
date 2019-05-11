@@ -24,6 +24,15 @@ tasks {
     }
   }
 
+  val buildAngularDev by creating {
+    dependsOn(installAngular)
+    description = "Build Angular Application"
+    group = BasePlugin.BUILD_GROUP
+    doFirst {
+      exec { commandLine("ng", "build") }
+    }
+  }
+
   withType<ProcessResources> {
     dependsOn(buildAngular)
   }

@@ -38,7 +38,7 @@ import {RestApiInterceptor} from './auth/auth-service.service';
 import {NavigationRoutes} from "./navigation/navigation.routes";
 import {SplashPageComponent} from './splash-page/splash-page.component';
 
-class GlobalErrorHandler implements ErrorHandler {
+export class GlobalErrorHandler implements ErrorHandler {
   handleError(error: Error): void {
     if (error instanceof HttpErrorResponse) {
       // Handled via specialized error handler
