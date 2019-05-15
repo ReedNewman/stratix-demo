@@ -1,0 +1,41 @@
+@import '~@angular/material/theming';
+
+@include mat-core;
+
+.light-theme {
+  $light-primary: mat-palette($mat-teal, 600, 200, 900);
+  $light-accent: mat-palette($mat-lime, 600, 200, 900);
+  $light-warn: mat-palette($mat-red);
+  $light-theme: mat-light-theme($light-primary, $light-accent, $light-warn);
+  @include angular-material-theme($light-theme);
+}
+
+// Define an alternate dark theme.
+$dark-primary: mat-palette($mat-yellow);
+$dark-accent: mat-palette($mat-green);
+$dark-warn: mat-palette($mat-deep-orange);
+$dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+//$dark-background: mat-palette($mat-blue-grey, 500);
+//$dark-theme: map_merge($dark-theme, (background: $dark-background));
+.dark-theme {
+  @include angular-material-theme($dark-theme);
+}
+
+@include angular-material-theme($dark-theme);
+
+.form-theme {
+  $form-primary: mat-palette($mat-amber, 600);
+  $form-accent: mat-palette($mat-lime, 600);
+  $form-warn: mat-palette($mat-deep-orange, 600);
+  $form-theme: mat-dark-theme($form-primary, $form-accent, $form-warn);
+  @include angular-material-theme($form-theme);
+}
+
+.admin-theme {
+  $admin-primary: mat-palette($mat-deep-purple, 300);
+  $admin-accent: mat-palette($mat-blue, 300);
+  $admin-warn: mat-palette($mat-deep-orange, 600);
+  $admin-theme: mat-dark-theme($admin-primary, $admin-accent, $admin-warn);
+  @include angular-material-theme($admin-theme);
+}

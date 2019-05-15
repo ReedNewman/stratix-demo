@@ -1,0 +1,34 @@
+<mat-toolbar>
+    <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
+        <a [routerLink]="['/']" mat-button>
+            <img src="assets/logo.svg">
+        </a>
+        <a mat-button routerLink="/">Area 42</a>
+        <a mat-button routerLink="/">NSA</a>
+        <span fxFlex=""></span>
+        <mat-form-field>
+            <input matInput placeholder="Search for stuff" type="text">
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+        <span *ngIf="user.token">
+            <mat-menu #authMenu="matMenu">
+                <a *ngIf="user.admin" mat-button routerLink="/admin">Admin Duties</a>
+                <mat-divider></mat-divider>
+                <button (click)="logout()" mat-menu-item>Logout</button>
+            </mat-menu>
+            <button [matMenuTriggerFor]="authMenu" mat-button>
+                <span>{{user.firstName}}</span>
+                <mat-icon>more_vert</mat-icon>
+            </button>
+        </span>
+        <span *ngIf="!user.token">
+            <mat-menu #navMenu="matMenu">
+                <button (click)="openLoginDialog()" mat-menu-item>Login</button>
+            </mat-menu>
+            <button [matMenuTriggerFor]="navMenu" mat-button>
+                <span>Guest</span>
+                <mat-icon>more_vert</mat-icon>
+            </button>
+        </span>
+    </mat-toolbar-row>
+</mat-toolbar>
