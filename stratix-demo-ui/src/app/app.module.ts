@@ -37,6 +37,7 @@ import {environment} from '../environments/environment';
 import {RestApiInterceptor} from './auth/auth-service.service';
 import {NavigationRoutes} from "./navigation/navigation.routes";
 import {SplashPageComponent} from './splash-page/splash-page.component';
+import {AdminComponent} from './admin/admin.component'
 
 export class GlobalErrorHandler implements ErrorHandler {
   handleError(error: Error): void {
@@ -59,7 +60,8 @@ export class GlobalErrorHandler implements ErrorHandler {
     AppComponent,
     LoginDialogComponent,
     NavigationComponent,
-    SplashPageComponent
+    SplashPageComponent,
+    AdminComponent
   ],
   entryComponents: [LoginDialogComponent],
   imports: [
