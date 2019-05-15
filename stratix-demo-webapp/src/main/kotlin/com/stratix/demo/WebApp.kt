@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.JsonGenerator
 import com.fasterxml.jackson.databind.*
 import com.fasterxml.jackson.databind.module.SimpleModule
 import com.stratix.demo.notification.NotificationWebSocket
+import com.stratix.demo.rest.DeviceService
 import com.stratix.demo.rest.UserAuthManager
 import com.stratix.demo.rest.UserService
 import io.tekniq.validation.Rejection
@@ -74,6 +75,7 @@ class WebApp : SparkApplication {
             options("*") { _, _ -> }
 
             UserService.route(this)
+            DeviceService.route(this)
 
             exception(NotAuthorizedException::class) { e, _, _ ->
                 Pair(401, mapOf("errors" to e.rejections))

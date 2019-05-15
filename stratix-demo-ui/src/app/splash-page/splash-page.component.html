@@ -1,3 +1,6 @@
-<p>
+<p *ngIf="user.token">
   splash-page works!
+</p>
+<p *ngIf="!user.token">
+  Authentication Required...
 </p>
