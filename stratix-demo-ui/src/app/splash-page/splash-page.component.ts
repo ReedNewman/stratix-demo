@@ -7,4 +7,9 @@ import {BaseComponent} from "../helpers/base-component";
   styleUrls: ['./splash-page.component.scss']
 })
 export class SplashPageComponent extends BaseComponent {
+
+  ngAfterViewInit() {
+    console.info("Splash Page loaded");
+  }
+
 }
