@@ -17,7 +17,7 @@ export class LoginDialogComponent extends BaseComponent {
   }
 
   login(): void {
-    console.info("I got called", new Date(), this.email, this.password);
+    console.info("I got called", new Date(), this.email, "********");
     this.authService.login(this.email, this.password)
       .subscribe((auth) => {
         console.info('Login Successful with', auth);
