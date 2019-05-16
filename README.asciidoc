@@ -26,7 +26,13 @@ EXTERNAL_FILES=../stratix-demo-ui/build/webapp ./gradlew run
 ----
 
 
-=== Introduction
+===== Reed
+Hi again.  I updated the app to repair the broken image links, and basically laid down what I had done previously into your architecture.
+It not much to look at, I created a DAO object to put some data into mongo and a controller to generate / retrieve said data.
+It took a little time to learn the Angular piece, otherwise I think I could have had this returned yesterday (Wednesday).
+If I find some time today, I think I could add the interview questions in but done in Kotlin; just so there is more Kotlin to look at.
+
+===== Sejal
 Hello Reed, I must say that I am very impressed. So I decided to see if I could take it one step further and provide you with the core infrastructure concepts and see how you do (for fun of course). And I've included a mistake or two for your pleasure.
 
 I've no particular goals in mind, just want to see if maybe you can do something trivially simple using the framework that relies on Kotlin idioms in a more puristic manner.
